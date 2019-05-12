@@ -1,6 +1,11 @@
+<% if logged_in? %>
+<p>ログインOK <%=current_user.name %></p>
+<% else %>
 <div class="center jumbotron">
   <div class="text-center">
     <h1>Fish-Score</h1>
-    <h2>Chasing for Big Fish</h2>
+    <p>Dream of Big Fish!</p>
+    <%= link_to '新規ユーザー登録', signup_path, class: 'btn btn-lg btn-primary' %>
   </div>
 </div>
+<% end %>
