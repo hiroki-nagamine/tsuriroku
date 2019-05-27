@@ -1,0 +1,29 @@
+<h1><%= @record.date %></h1>
+<table class="table table-bordered">
+  
+  <tr>
+    <th>サイズ</th>
+    <td><%=@record.size %></td>
+  </tr>
+  <tr>
+    <th>ウェイト</th>
+    <td><%= @record.weight%></td>
+  </tr>
+  <tr>
+    <th>場所</th>
+    <td><%=@record.place %></td>
+  </tr>
+  <tr>
+    <th>天気</th>
+    <td><%=@record.wether %></td>
+  </tr>
+  <tr>
+    <th>ヒットルアー</th>
+    <td><%=@record.lure %></td>
+  </tr>
+  <tr>
+    <th>メモ</th>
+    <td><%=@record.content%></td>
+  </tr>
+</table>
+  <%= link_to 'Edit',edit_record_path,class: 'btn btn-primary',class: 'glyphicon glyphicon-wrench' %>

@@ -1,0 +1,34 @@
+<ul class="media-list">
+  <% records.each do |record| %>
+  <li class="media">
+    <div class="media-left">
+      <img class="media-object img-rounded" src="<%= gravatar_url(record.user, { size: 50 }) %>" alt="">
+    </div>
+    <div class="media-body">
+      <div>
+        <%= link_to record.user.name, user_path(record.user) %> <span class="text-muted">posted at <%=record.created_at %></span>
+      </div>
+      <table class="table">
+      <thead>
+      <tr>
+        <th>日付</th>
+        <th>サイズ</th>
+        <th>ウェイト</th>
+        <th>ヒットルアー</th>
+      </tr>
+    </thead>
+     <tbody>
+        <tr>
+          <td><%= link_to record.date,record %></td>
+          <td><%=record.size %></td>
+          <td><%=record.weight %></td>
+          <td><%=record.lure %></td>
+        </tr>
+     </tbody>
+    </table>
+    </div>
+  </li>
+  <% end %>
+  <%= link_to'投稿', new_record_path, class: 'btn btn-primary'%> 
+  <%= paginate records %>
+</ul>
