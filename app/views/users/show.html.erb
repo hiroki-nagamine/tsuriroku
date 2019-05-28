@@ -10,10 +10,13 @@
     </div>
   </aside>
   <div class="col-xs-8">
-    <h1>今までの釣果</h1>
-    <table class="table table-bordered">
-      
-     <%= link_to'投稿', new_record_path, class: 'btn btn-primary'%> 
-   
+    <ul class="nav nav-tabs nav-justified">
+      <li class="<%='active'if current_page?(user_path(@user)) %>"><%=link_to user_path(@user) do %>釣果一覧 <span class="badge"><%=@count_records %></span><% end %></li>
+      <li><a href="#">フォロワー</a></li>
+      <li><a href="#">フォローしている</a></li>
+    </ul>
+    
+      <%= render 'records/records', records: @records %>
+     <%= link_to'釣果を記録', new_record_path, class: 'btn btn-primary'%> 
   </div>
 </div>

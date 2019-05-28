@@ -26,6 +26,11 @@
         </tr>
      </tbody>
     </table>
+      <div>
+          <% if current_user == record.user %>
+            <%= link_to "投稿を削除する",record, method: :delete, data: {confirm: "本当に削除しますか？"}, class: "btn btn-danger btn-xs" %>
+          <% end %>
+      </div>
     </div>
   </li>
   <% end %>

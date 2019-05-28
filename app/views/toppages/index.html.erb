@@ -1,10 +1,6 @@
 <% if logged_in? %>
 <div class="row">
-   <div class="col-xs-8">
-     <aside>
-       <%= render 'records/records',records: @records %>
-     </aside>
-    </div>
+       <%= render 'records/records', records: @records %>
 </div>
 <% else %>
   <div class="text-center">

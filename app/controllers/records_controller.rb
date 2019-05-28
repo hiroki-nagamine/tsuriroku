@@ -44,7 +44,7 @@ class RecordsController < ApplicationController
   def destroy
     @record.destroy
     flash[:success] = '投稿を削除しました'
-    redirect_back(fallback_locartion: root_path)
+    redirect_back(fallback_location: root_path)
   end
   
   private

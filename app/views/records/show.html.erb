@@ -1,5 +1,5 @@
 <h1><%= @record.date %></h1>
-<table class="table table-bordered">
+<table class="table">
   
   <tr>
     <th>サイズ</th>
@@ -7,7 +7,7 @@
   </tr>
   <tr>
     <th>ウェイト</th>
-    <td><%= @record.weight%></td>
+    <td><%=@record.weight%></td>
   </tr>
   <tr>
     <th>場所</th>
@@ -26,4 +26,5 @@
     <td><%=@record.content%></td>
   </tr>
 </table>
-  <%= link_to 'Edit',edit_record_path,class: 'btn btn-primary',class: 'glyphicon glyphicon-wrench' %>
+
+  <%= link_to 'Edit',edit_record_path,class: 'btn btn-primary' %>
