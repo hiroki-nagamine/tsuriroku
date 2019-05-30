@@ -23,7 +23,8 @@ ul {
 /*body*/
 body {
   position: relative;
-  background: url(fisherman.jpg);
+    background: url("/images/fisherman2.jpeg
+  ") center center no-repeat;
   background-size: cover;
   background-repeat: no-repeat;
 }
