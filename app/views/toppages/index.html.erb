@@ -5,9 +5,15 @@
 <% else %>
   <div class="text-center">
     <div class="container">
-      <h1>ツリロク</h1>
-      <p>Dream of Big Fish!</p>
+      <div class="main-title">
+        <h1>ツリロク</h1>
+        <h3>Dream of Big Fish!<h3>
+        <p>このアプリはあなたの釣果を記録できるアプリです。</p>
+      </div>
     </div>
-    <%= link_to '新規ユーザー登録', signup_path, class: 'btn btn-lg btn-primary' %>
+      <div class="signup-button">
+        <%= link_to '新規ユーザー登録', signup_path, class: 'btn btn-lg btn-primary' %>
+        <p>すでにユーザーの方は<%=link_to 'ログイン',login_path%></p>
+      </div>
   </div>
 <% end %>
