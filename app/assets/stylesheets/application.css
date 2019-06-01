@@ -27,6 +27,7 @@ body {
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
+  background-color: black;
   position: relative;
 }
 
@@ -37,7 +38,7 @@ body {
 
 .main-title h1 {
   font-size: 100px;
-  padding-top: 130px;
+  padding-top: 100px;
 }
 .main-title p {
   font-size: 18px;
