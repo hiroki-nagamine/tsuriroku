@@ -15,6 +15,7 @@
  *= require_self
  */
  
+*= require bootstrap-datetimepicker
 
 ul {
   list-style: none;
@@ -47,6 +48,9 @@ body {
 .signup-button {
   text-align: center;
   padding: 40px;
+}
+.date-select{
+  color: black;
 }
 
 footer {

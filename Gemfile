@@ -59,3 +59,6 @@ gem 'kaminari'
 group :production do
   gem 'pg' ,'0.21.0'
 end
+
+gem 'momentjs-rails'
+gem 'bootstrap3-datetimepicker-rails'
