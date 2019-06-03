@@ -1,6 +1,15 @@
 <h1><%= @record.date %></h1>
+<aside>
+   <div class="record-image">
+       <% if @record.image? %>
+         <%= image_tag @record.image.thumb.url %> <!---->
+       <%else %>
+         <%= image_tag("/images/no-image.png") %>
+         <p>No Image</p>  
+       <% end %>
+   </div>
+</aside>
 <table class="table">
-  
   <tr>
     <th>サイズ</th>
     <td><%=@record.size %></td>

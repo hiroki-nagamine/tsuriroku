@@ -1,5 +1,6 @@
 class Record < ApplicationRecord
   belongs_to :user
+  mount_uploader :image, ImagesUploader
   validates :size, presence: true, length: {maximum: 10}
   validates :weight, presence: true, length: {maximum: 10}
   validates :place, presence: true, length: {maximum: 30}

@@ -1,12 +1,11 @@
 class UsersController < ApplicationController
   before_action :require_user_logged_in, only: [:index, :show]
-  
+  before_action :set_users, only: [:show,:edit]
   def index
     @users = User.all.page(params[:id])
   end
 
   def show
-    @user = User.find(params[:id])
     @records = @user.records.order('created_at DESC').page(params[:page])
     counts(@user)
   end
@@ -27,9 +26,31 @@ class UsersController < ApplicationController
     end
   end
   
+  def edit
+  end
+  
+  def update #user情報編集
+    if current_user == @user #編集しようとしているユーザーがログインユーザーとイコールかチェック
+    
+      if @user.update(user_params)
+        flash[:success] = 'アングラープロフィールをアップデートしました！'
+        render :show
+      else
+        flash.now[:danger] = 'アングラープロフィールのアップデートに失敗しました'
+        render :edit
+      end
+    else
+      redirect_to root_url
+    end
+  end
+  
   private
   
+  def set_users
+    @user = User.find(params[:id])
+  end
+  
   def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation,:image)
   end
 end

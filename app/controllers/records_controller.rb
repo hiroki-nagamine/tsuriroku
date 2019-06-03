@@ -54,7 +54,7 @@ class RecordsController < ApplicationController
   end
   
   def record_params
-    params.require(:record).permit(:size,:weight,:place,:wether,:lure,:date,:content)
+    params.require(:record).permit(:size,:weight,:place,:wether,:lure,:date,:content,:image)
   end
   
   def correct_user

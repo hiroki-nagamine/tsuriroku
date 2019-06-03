@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_02_143254) do
+ActiveRecord::Schema.define(version: 2019_06_03_132109) do
 
   create_table "records", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "size"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 2019_06_02_143254) do
     t.datetime "updated_at", null: false
     t.string "content"
     t.date "date"
+    t.string "image"
     t.index ["user_id"], name: "index_records_on_user_id"
   end
 
@@ -32,6 +33,7 @@ ActiveRecord::Schema.define(version: 2019_06_02_143254) do
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "image"
   end
 
   add_foreign_key "records", "users"
