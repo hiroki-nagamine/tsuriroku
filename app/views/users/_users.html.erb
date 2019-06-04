@@ -3,7 +3,7 @@
     <% users.each do |user| %>
     <li class="media">
       <div class="media-list">
-        <img class="media-object img-rounded" src="<%= @user.image.url %>"alt="userphotobig">
+        <img class="media-object img-rounded" src="<%= current_user.image.thumb80.url %>"alt="userphotobig">
       </div>
       <div class="media-body">
         <div>

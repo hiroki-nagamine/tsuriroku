@@ -37,7 +37,7 @@ class RecordsController < ApplicationController
       redirect_to @record
     else
       flash.now[:danger] = '投稿を編集できませんでした'
-      render :dedit
+      render :edit
     end
   end
 

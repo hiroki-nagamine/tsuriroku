@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :require_user_logged_in, only: [:index, :show]
+  before_action :require_user_logged_in, only: [:index, :show,:destroy]
   before_action :set_users, only: [:show,:edit]
   def index
     @users = User.all.page(params[:id])
@@ -34,7 +34,7 @@ class UsersController < ApplicationController
     
       if @user.update(user_params)
         flash[:success] = 'アングラープロフィールをアップデートしました！'
-        render :show
+        render @user
       else
         flash.now[:danger] = 'アングラープロフィールのアップデートに失敗しました'
         render :edit
@@ -44,6 +44,16 @@ class UsersController < ApplicationController
     end
   end
   
+  def destroy
+    if current_user == @user
+        @user.destroy
+        flash[:success] = 'ツリロクから退会しました'
+        redirect_back root_url
+    else
+        redirect_to root_url
+    end
+  end
+
   private
   
   def set_users
