@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :require_user_logged_in, only: [:index, :show,:destroy]
-  before_action :set_users, only: [:show,:edit]
+  before_action :set_users, only: [:show,:edit,:update]
   def index
     @users = User.all.page(params[:id])
   end
@@ -18,10 +18,10 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     
     if @user.save
-      flash[:success] = 'ユーザーを登録しました'
+      flash[:success] = 'アングラー登録が完了しました'
       redirect_to root_url
     else
-      flash.now[:danger] = 'ユーザーの登録に失敗しました'
+      flash.now[:danger] = 'アングラー登録に失敗しました'
       render :new
     end
   end
@@ -31,10 +31,9 @@ class UsersController < ApplicationController
   
   def update #user情報編集
     if current_user == @user #編集しようとしているユーザーがログインユーザーとイコールかチェック
-    
       if @user.update(user_params)
         flash[:success] = 'アングラープロフィールをアップデートしました！'
-        render @user
+        redirect_to @user
       else
         flash.now[:danger] = 'アングラープロフィールのアップデートに失敗しました'
         render :edit
@@ -45,13 +44,18 @@ class UsersController < ApplicationController
   end
   
   def destroy
-    if current_user == @user
+     @user = User.find_by(id: params[:id])
+     @records = Record.find_by(user_id: params[:id])
+      flash[:notice] = 'ツリロクから退会しました'
+      
+      if @records.nil? #投稿が存在するか確認。投稿がない場合はユーザーのみ削除
         @user.destroy
-        flash[:success] = 'ツリロクから退会しました'
-        redirect_back root_url
-    else
-        redirect_to root_url
-    end
+        redirect_back(fallback_location: root_path)
+      else            #投稿が存在する場合はユーザーと投稿データも一緒に削除
+        @user.destroy
+        @records.destroy
+         redirect_back(fallback_location: root_path)
+      end
   end
 
   private
