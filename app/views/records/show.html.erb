@@ -1,39 +1,45 @@
 <h1><%= @record.date %></h1>
-<aside>
-   <div class="record-image">
-       <% if @record.image? %>
-         <%= image_tag @record.image.thumb.url %> <!---->
-       <%else %>
-         <%= image_tag("/images/no-image.png") %>
-         <p>No Image</p>  
-       <% end %>
+<div class="row">
+  <div class="text-center">
+    <div class="col-xs-8 col-md-12">
+       <div class="record-image">
+           <% if @record.image? %>
+             <%= image_tag @record.image.thumb.url %> <!---->
+           <%else %>
+             <%= image_tag("/images/no-image.png") %>
+             <p>No Image</p>  
+           <% end %>
+       </div>
+        <table class="table">
+          <tr>
+            <th>サイズ</th>
+            <td><%=@record.size %></td>
+          </tr>
+          <tr>
+            <th>ウェイト</th>
+            <td><%=@record.weight%></td>
+          </tr>
+          <tr>
+            <th>場所</th>
+            <td><%=@record.place %></td>
+          </tr>
+          <tr>
+            <th>天気</th>
+            <td><%=@record.wether %></td>
+          </tr>
+          <tr>
+            <th>ヒットルアー</th>
+            <td><%=@record.lure %></td>
+          </tr>
+          <tr>
+            <th>メモ</th>
+            <td><%=@record.content%></td>
+          </tr>
+        </table>
+     </div>
    </div>
-</aside>
-<table class="table">
-  <tr>
-    <th>サイズ</th>
-    <td><%=@record.size %></td>
-  </tr>
-  <tr>
-    <th>ウェイト</th>
-    <td><%=@record.weight%></td>
-  </tr>
-  <tr>
-    <th>場所</th>
-    <td><%=@record.place %></td>
-  </tr>
-  <tr>
-    <th>天気</th>
-    <td><%=@record.wether %></td>
-  </tr>
-  <tr>
-    <th>ヒットルアー</th>
-    <td><%=@record.lure %></td>
-  </tr>
-  <tr>
-    <th>メモ</th>
-    <td><%=@record.content%></td>
-  </tr>
-</table>
+</div>
 
-  <%= link_to 'Edit',edit_record_path,class: 'btn btn-primary' %>
+  <%= link_to '投稿を編集',edit_record_path,class: 'btn btn-primary' %>
+  <%= link_to "投稿を削除する", @record, method: :delete , data: {confirm: "本当に削除しますか？"}, class: "btn btn-danger" %>
+   
