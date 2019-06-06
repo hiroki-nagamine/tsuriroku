@@ -11,18 +11,18 @@
       <table class="table">
       <thead>
       <tr>
-        <th>日付</th>
-        <th>サイズ</th>
-        <th>ウェイト</th>
-        <th>ヒットルアー</th>
+        <th class="text-left">日付</th>
+        <th class="text-left">サイズ</th>
+        <th class="text-left">ウェイト</th>
+        <th class="text-left">ヒットルアー</th>
       </tr>
     </thead>
      <tbody>
         <tr>
-          <td><%= link_to record.date,record %></td>
-          <td><%=record.size %></td>
-          <td><%=record.weight %></td>
-          <td><%=record.lure %></td>
+          <td class="text-left"><%= link_to record.date,record %></td>
+          <td class="text-left"><%=record.size %></td>
+          <td class="text-left"><%=record.weight %></td>
+          <td class="text-left"><%=record.lure %></td>
         </tr>
      </tbody>
     </table>
