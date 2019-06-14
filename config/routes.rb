@@ -6,7 +6,16 @@ Rails.application.routes.draw do
   delete 'logout', to: 'sessions#destroy'
   
   get 'signup', to: 'users#new'
-  resources :users
+  resources :users do
+    member do
+      get :followings
+      get:followers
+    end
+    # collection do ユーザーの検索機能をつける場合に使用
+    #   get :serach
+    # end
+  end
   
   resources :records
+  resources : relationships, only: [:create,:destroy]
 end
