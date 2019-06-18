@@ -17,6 +17,7 @@
           
           <!--ログインできた場合-->
           <% if logged_in? %>
+           <li><%= link_to 'ユーザー一覧',users_path %></li>
            <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.name %> <span class="caret"></span></a>
              <ul class="dropdown-menu">

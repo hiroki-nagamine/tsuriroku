@@ -16,7 +16,6 @@
       <li class="<%= 'active' if current_page?(followings_user_path(@user)) %>"><%= link_to followings_user_path(@user) do %>フォローしている数<span class="badge"><%=@count_followings %><% end %></span></li>
       <li class="<%= 'active' if current_page?(followers_user_path(@user)) %>"><%= link_to followers_user_path(@user) do %>フォローされている数<span class="badge"><%=@count_followers %><% end %></span></li>
     </ul>
-      <%= render 'records/records', records: @records %>
-     <%= link_to'釣果を記録', new_record_path, class: 'btn btn-primary'%> 
+    <%= render 'users' , users: @followers %>
   </div>
 </div>

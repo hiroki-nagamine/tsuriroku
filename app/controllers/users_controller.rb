@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_action :require_user_logged_in, only: [:index, :show,:destroy]
-  before_action :set_users, only: [:show,:edit,:update]
+  before_action :require_user_logged_in, only: [:index, :show, :destroy, :followes, :followings]
+  before_action :set_users, only: [:show,:edit,:update,:followings,:followers]
   def index
     @users = User.all.page(params[:id])
   end
@@ -18,10 +18,10 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     
     if @user.save
-      flash[:success] = 'アングラー登録が完了しました'
+      flash[:success] = 'ユーザー登録が完了しました'
       redirect_to root_url
     else
-      flash.now[:danger] = 'アングラー登録に失敗しました'
+      flash.now[:danger] = 'ユーザー登録に失敗しました'
       render :new
     end
   end
@@ -32,10 +32,10 @@ class UsersController < ApplicationController
   def update #user情報編集
     if current_user == @user #編集しようとしているユーザーがログインユーザーとイコールかチェック
       if @user.update(user_params)
-        flash[:success] = 'アングラープロフィールをアップデートしました！'
+        flash[:success] = 'ユーザープロフィールをアップデートしました！'
         redirect_to @user
       else
-        flash.now[:danger] = 'アングラープロフィールのアップデートに失敗しました'
+        flash.now[:danger] = 'ユーザープロフィールのアップデートに失敗しました'
         render :edit
       end
     else
@@ -56,6 +56,16 @@ class UsersController < ApplicationController
         @records.destroy
          redirect_back(fallback_location: root_path)
       end
+  end
+  
+  def followings
+    @fillowings = @user.followings.page(params[:page])
+    counts(@user)
+  end
+  
+  def followers
+    @followers = @user.followers.page(params[:page])
+    counts(@user)
   end
 
   private

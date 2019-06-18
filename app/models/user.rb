@@ -9,7 +9,7 @@ class User < ApplicationRecord
   has_many :records, dependent: :destroy
   has_many :relationships #自分がフォロしているUserへの参照
   has_many :followings,through: :relationships, source: :follow #フォローしているユーザーを中間テーブルを経由して参照
-  has_many :reverses_of_relationships, class_name: 'Relationship',foreign_key: 'follow_id'
+  has_many :reverses_of_relationship, class_name: 'Relationship',foreign_key: 'follow_id'
   has_many :followers, through: :reverses_of_relationship, source: :user #フォローされているUserを中間テーブルを経由して参照
   
   def follow(other_user)
