@@ -33,7 +33,7 @@ class ImagesUploader < CarrierWave::Uploader::Base
 
 
  # 画像の上限を700pxにする
-  process :resize_to_limit => [700, 700]
+  process :resize_to_limit => [1200, 1200]
   
   
   # サムネイルを生成する設定

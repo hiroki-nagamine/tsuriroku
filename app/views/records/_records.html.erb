@@ -2,7 +2,7 @@
   <% records.each do |record| %>
   <li class="media">
     <div class="media-left">
-      <img class="media-object img-rounded" src="<%= current_user.image.thumb80.url %>" alt="user photo">
+      <img class="media-object img-rounded" src="<%= record.image.thumb80.url %>"alt="">
     </div>
     <div class="media-body">
       <div>
@@ -33,5 +33,5 @@
   </li>
   <% end %>
   <%= link_to'投稿', new_record_path, class: 'btn btn-primary'%> 
-  <%= paginate records %>
+  <!--paginate records-->
 </ul>
