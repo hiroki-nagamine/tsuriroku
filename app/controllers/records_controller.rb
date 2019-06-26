@@ -1,7 +1,7 @@
 class RecordsController < ApplicationController
   before_action :require_user_logged_in
-  before_action :set_records, only:[:show,:edit,:update]
-  before_action :correct_user, only: [:destroy]
+  before_action :set_records, only: [:show,:edit,:update]
+  before_action :correct_user, only: [:edit, :update, :destroy]
   
   def index
       @records = current_user.records.order('created_at DESC')#.page(params[:page]).per(5)
