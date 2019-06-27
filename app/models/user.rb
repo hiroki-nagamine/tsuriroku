@@ -26,4 +26,8 @@ class User < ApplicationRecord
   def following?(other_user)
     self.followings.include?(other_user)
   end
+  
+  def feed_records
+    Record.where(user_id: self.following_ids + [self.id]) #Record.where(user_id: フォローユーザー＋自分自身)
+  end
 end
