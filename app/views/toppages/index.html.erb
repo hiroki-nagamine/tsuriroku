@@ -1,4 +1,5 @@
 <% if logged_in? %>
+<h1今までの釣果></h1>
        <%= render 'records/records', records: @records %>
 <% else %>
   <div class="text-center">
