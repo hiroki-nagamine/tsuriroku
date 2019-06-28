@@ -4,7 +4,9 @@ class RecordsController < ApplicationController
   before_action :correct_user, only: [:edit, :update, :destroy]
   
   def index
-      @records = current_user.records.order('created_at DESC').page(params[:page]).per(5)
+    if logged_in?
+      @records = current_user.records.order('created_at DESC')#.page(params[:page]).per(5)
+    end
   end
   
   def show
@@ -21,7 +23,7 @@ class RecordsController < ApplicationController
       flash[:success] = '投稿しました'
       redirect_to root_url
     else
-      @records = current_user.feed_records.order('created_at DESC').page(params[:page]).per(5)
+      @records = current_user.feed_records.order('created_at DESC')#.page(params[:page]).per(5)
       flash.now[:danger] = '投稿できませんでした'
       render 'toppages/index'
     end
@@ -32,17 +34,22 @@ class RecordsController < ApplicationController
   
   
   def update
-    if @record.update(record_params)
-      flash[:success] = '投稿を編集しました'
-      redirect_to @record
-    else
-      flash.now[:danger] = '投稿を編集できませんでした'
-      render :edit
-    end
+    # if current_user == @user
+      if @record.update(record_params)
+        flash[:success] = '投稿を編集しました'
+        redirect_to @record
+      else
+        flash.now[:danger] = '投稿を編集できませんでした'
+        render :edit
+      end
+    # else
+    #   redirect_to root_url
+    # end
   end
 
   def destroy
     @record.destroy
+    
     flash[:success] = '投稿を削除しました'
     redirect_back(fallback_location: root_path)
   end
