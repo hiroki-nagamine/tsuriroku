@@ -39,7 +39,6 @@
         <div class="text-left">
            <% if current_user == @record.user %>
              <%= link_to '投稿を編集', edit_record_path(@record),class: 'btn btn-primary' %>
-             <%= link_to "投稿を削除する",@record, method: :delete, data: {confirm: "本当に削除しますか？"}, class: "btn btn-danger" %>
            <% end %>
         </div>
      </div>

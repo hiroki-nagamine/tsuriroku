@@ -1,3 +1,4 @@
+<!--タイムラインの投稿-->
 <ul class="media-list">
   <% records.each do |record| %>
   <li class="media">
@@ -32,5 +33,5 @@
     </div>
   </li>
   <% end %>
-  <!--paginate records-->
+  <% paginate records %>
 </ul>
