@@ -40,6 +40,7 @@
            <% if current_user == @record.user %>
              <%= link_to '投稿を編集', edit_record_path(@record),class: 'btn btn-primary' %>
            <% end %>
+           <% render 'likes/like_button', user: @record %>
         </div>
      </div>
    </div>
