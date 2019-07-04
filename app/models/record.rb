@@ -1,6 +1,10 @@
 class Record < ApplicationRecord
   belongs_to :user
+  has_many :articles #中間テーブルarticles 多対多の関係
+  has_many :users, through: :articles 
+  
   mount_uploader :image, ImagesUploader
+  
   validates :size, presence: true, length: {maximum: 10}
   validates :weight, presence: true, length: {maximum: 10}
   validates :place, presence: true, length: {maximum: 30}

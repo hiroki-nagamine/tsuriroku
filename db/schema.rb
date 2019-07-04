@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_04_125933) do
+ActiveRecord::Schema.define(version: 2019_07_04_131807) do
+
+  create_table "articles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "record_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["record_id"], name: "index_articles_on_record_id"
+    t.index ["user_id", "record_id"], name: "index_articles_on_user_id_and_record_id", unique: true
+    t.index ["user_id"], name: "index_articles_on_user_id"
+  end
 
   create_table "records", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "size"
@@ -46,6 +56,8 @@ ActiveRecord::Schema.define(version: 2019_07_04_125933) do
     t.string "image"
   end
 
+  add_foreign_key "articles", "records"
+  add_foreign_key "articles", "users"
   add_foreign_key "records", "users"
   add_foreign_key "relationships", "users"
   add_foreign_key "relationships", "users", column: "follow_id"

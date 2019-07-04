@@ -7,7 +7,7 @@
     </div>
     <div class="media-body">
       <div>
-        <%= link_to record.user.name, user_path(record.user) %> <span class="text-muted">posted at <%=record.created_at %></span>
+        <%= link_to record.user.name, user_path(record.user) %> <span class="text-muted">posted at <%=record.created_at %></span><!--ユーザープロフィールへのリンク-->
       </div>
       <table class="table">
       <thead>
@@ -29,9 +29,10 @@
           <% if current_user == record.user %>
             <%= link_to "投稿を削除する",record, method: :delete, data: {confirm: "本当に削除しますか？"}, class: "btn btn-danger btn-xs" %>
           <% end %>
+          <%= render 'articles/like_button',record: record %>
       </div>
     </div>
   </li>
   <% end %>
-  <% paginate records %>
+  
 </ul>

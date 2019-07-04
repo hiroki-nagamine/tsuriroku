@@ -4,7 +4,7 @@
     <div class="text-center">
        <div class="record-image">
            <% if @record.image? %>
-             <%= image_tag @record.image.thumb300.url %> <!---->
+             <%= image_tag @record.image.thumb300.url %>
            <%else %>
              <%= image_tag("/images/no-image.png") %>
              <p>No Image</p>  
@@ -40,7 +40,6 @@
            <% if current_user == @record.user %>
              <%= link_to '投稿を編集', edit_record_path(@record),class: 'btn btn-primary' %>
            <% end %>
-           <% render 'likes/like_button', user: @record %>
         </div>
      </div>
    </div>

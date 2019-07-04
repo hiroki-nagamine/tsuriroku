@@ -59,9 +59,9 @@ class ImagesUploader < CarrierWave::Uploader::Base
     super.chomp(File.extname(super)) + '.jpg' if original_filename.present?
   end
   
-  def default_url
-    "default.png"
-  end
+  # def default_url
+  #   "default.png"
+  # end
 
 
   # # Create different versions of your uploaded files:

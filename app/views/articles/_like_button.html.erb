@@ -1,0 +1,13 @@
+  <!--いいねを解除ボタン-->
+  <% if current_user.like?(record) %>
+    <%= form_for(current_user.articles.find_by(record_id: record.id), html: {method: :delete}) do |f| %>
+      <%= hidden_field_tag :record_id,record.id %>
+      <%= f.submit 'いいねを解除', class: 'btn btn-danger' %>
+    <% end %>
+    <!--いいねボタン-->
+  <% else %>
+    <%= form_for(current_user.articles.build) do |f| %>
+      <%= hidden_field_tag :record_id,record.id %>
+      <%= f.submit 'いいね！',class: 'btn btn-primary' %>
+    <% end %>
+  <% end %>

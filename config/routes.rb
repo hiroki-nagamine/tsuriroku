@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     member do
       get :followings
       get :followers
-      get :likings
+      get :likes
     end
     # collection do ユーザーの検索機能をつける場合に使用
     #   get :serach
@@ -20,5 +20,5 @@ Rails.application.routes.draw do
   
   resources :records
   resources :relationships, only: [:create,:destroy]
-  resources :likes, only: [:create, :destroy]
+  resources :articles, only: [:create, :destroy]
 end
