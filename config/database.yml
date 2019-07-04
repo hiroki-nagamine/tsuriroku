@@ -47,10 +47,10 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
-production:
-  adapter: postgresql
-  encoding: unicode
-  pool: 5
-  database: fish-score_production
-  username: fish-score
-  password: <%= ENV['FISH-SCORE_DATABASE_PASSWORD'] %>
+# production:
+#   adapter: postgresql
+#   encoding: unicode
+#   pool: 5
+#   database: fish-score_production
+#   username: fish-score
+#   password: <%= ENV['FISH-SCORE_DATABASE_PASSWORD'] %>
