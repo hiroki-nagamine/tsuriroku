@@ -3,6 +3,7 @@
   <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-lg-offset-2 col-lg-8">
     <div class="text-center">
        <div class="record-image">
+         <!--写真が追加されなかった場合はNo-image.pngを表示する-->
            <% if @record.image? %>
              <%= image_tag @record.image.thumb300.url %>
            <%else %>
@@ -37,7 +38,7 @@
           </tr>
         </table>
         <div class="text-left">
-           <% if current_user == @record.user %>
+           <% if current_user == @record.user %> <!--ログインしているユーザーのみ編集ボタンを表示させる-->
              <%= link_to '投稿を編集', edit_record_path(@record),class: 'btn btn-primary' %>
            <% end %>
         </div>

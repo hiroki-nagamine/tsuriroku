@@ -8,12 +8,14 @@ class User < ApplicationRecord
   has_secure_password
   
   has_many :records, dependent: :destroy
-  has_many :relationships,dependent: :destroy #自分がフォロしているUserへの参照
-  has_many :articles,dependent: :destroy
+  has_many :relationships, dependent: :destroy #自分がフォロしているUserへの参照
+  has_many :articles, dependent: :destroy
   has_many :followings, through: :relationships, source: :follow ,dependent: :destroy #フォローしているユーザーを中間テーブルを経由して参照
   has_many :reverses_of_relationship, class_name: 'Relationship',foreign_key: 'follow_id' ,dependent: :destroy
   has_many :followers, through: :reverses_of_relationship, source: :user,dependent: :destroy #フォローされているUserを中間テーブルを経由して参照
-  has_many :likes, through: :articles,source: :record
+  has_many :likes, through: :articles, source: :record
+  
+  # ---------フォローアンフォロー機能-------------
   
   def follow(other_user)
     unless self == other_user #フォローしようとしているUserが自分ではないか検証
@@ -35,7 +37,7 @@ class User < ApplicationRecord
   end
   
   
-  # -----------いいねボタン-------------
+  # -----------いいね機能-------------
   
   
   def like(other_record)

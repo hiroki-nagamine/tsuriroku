@@ -17,6 +17,6 @@
       <li class="<%= 'active' if current_page?(followers_user_path(@user)) %>"><%= link_to followers_user_path(@user) do %>フォローされている<span class="badge"><%=@count_followers %><% end %></span></li>
       <li class="<%= 'active' if current_page?(likes_user_path(@user)) %>"><%= link_to likes_user_path(@user) do %>いいね!した釣果<span class="badge"><%=@count_likes %><% end %></span></li>
     </ul>
-    <%= render 'users' , users: @followers %>
+      <%= render 'records/records', records: @likes %>
   </div>
 </div>

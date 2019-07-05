@@ -3,7 +3,7 @@
   <% records.each do |record| %>
   <li class="media">
     <div class="media-left">
-      <img class="media-object img-rounded" src="<%= record.image.thumb80.url %>"alt="">
+      <img class="media-object img-rounded" src="<% if record.image? %><%=record.image.thumb80.url %><%else %><%= ("/images/no-image-icon.png") %><% end %>"alt="recordicon">
     </div>
     <div class="media-body">
       <div>
