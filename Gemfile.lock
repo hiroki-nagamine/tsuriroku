@@ -43,6 +43,22 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
     arel (9.0.0)
+    aws-eventstream (1.0.3)
+    aws-partitions (1.184.0)
+    aws-sdk-core (3.59.0)
+      aws-eventstream (~> 1.0, >= 1.0.2)
+      aws-partitions (~> 1.0)
+      aws-sigv4 (~> 1.1)
+      jmespath (~> 1.0)
+    aws-sdk-kms (1.23.0)
+      aws-sdk-core (~> 3, >= 3.58.0)
+      aws-sigv4 (~> 1.1)
+    aws-sdk-s3 (1.45.0)
+      aws-sdk-core (~> 3, >= 3.58.0)
+      aws-sdk-kms (~> 1)
+      aws-sigv4 (~> 1.1)
+    aws-sigv4 (1.1.0)
+      aws-eventstream (~> 1.0, >= 1.0.2)
     bcrypt (3.1.12)
     bindex (0.7.0)
     bootsnap (1.4.4)
@@ -72,6 +88,7 @@ GEM
     jbuilder (2.8.0)
       activesupport (>= 4.2.0)
       multi_json (>= 1.2)
+    jmespath (1.4.0)
     kaminari (1.1.1)
       activesupport (>= 4.1.0)
       kaminari-actionview (= 1.1.1)
@@ -189,6 +206,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  aws-sdk-s3
   bcrypt (~> 3.1.7)
   bootsnap (>= 1.1.0)
   byebug
