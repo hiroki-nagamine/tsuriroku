@@ -60,12 +60,12 @@ gem 'kaminari'
 #   gem 'pg' ,'0.21.0'
 # end
 
-gem 'carrierwave'
+gem 'carrierwave','~>1.0'
 
 gem 'rmagick'
 
 gem "aws-sdk-s3" , require: false
 
-gem 'fog-aws'
+gem "fog-aws", group: :production
 
-gem 'dotenv-rails'
+gem "dotenv-rails"
