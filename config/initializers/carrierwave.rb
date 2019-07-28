@@ -14,6 +14,7 @@ CarrierWave.configure do |config|
     }
     config.fog_directory = ENV['S3_BUCKET']
     config.cache_storage = :fog
+    config.asset_host = "https://s3.ap-northeast-1.amazonaws.com/tsuriroku-photo"
     config.fog_attributes = { cache_control: "public, max-age=#{365.day.to_i}"}#画像のキャッシュ数 365日に設定
   else
     config.storage :file
