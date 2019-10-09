@@ -5,7 +5,7 @@ class RecordsController < ApplicationController
   
   def index
     if logged_in?
-      @records = current_user.records.order('created_at DESC')#.page(params[:page]).per(5)
+      @records = current_user.records.order('created_at DESC').page(params[:page]).per(5)
     end
   end
   
