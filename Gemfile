@@ -6,7 +6,7 @@ ruby '2.4.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'
 # Use mysql as the database for Active Record
-gem 'mysql2', '>= 0.4.4', '< 0.6.0'
+gem 'mysql2'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
@@ -26,6 +26,20 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
  gem 'bcrypt', '~> 3.1.7'
+
+ gem 'rails-i18n'
+
+ gem 'carrierwave','~>1.0'
+
+ gem 'rmagick'
+
+ # gem "aws-sdk-s3" , require: false
+ #
+ # gem "fog-aws", group: :production
+
+ gem "dotenv-rails"
+
+ gem 'kaminari'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
@@ -54,18 +68,8 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-gem 'kaminari'
+
 
 # group :production do
 #   gem 'pg' ,'0.21.0'
 # end
-
-gem 'carrierwave','~>1.0'
-
-gem 'rmagick'
-
-gem "aws-sdk-s3" , require: false
-
-gem "fog-aws", group: :production
-
-gem "dotenv-rails"
